@@ -1,0 +1,66 @@
+*explain.txt* a plugin for vim to translate betoween english andchines 
+                       _           _                       _       _
+  ___ _ __         ___| |__       | |_ _ __ __ _ _ __  ___| | __ _| |_ ___
+ / _ \ '_ \ _____ / __| '_ \ _____| __| '__/ _` | '_ \/ __| |/ _` | __/ _ \
+|  __/ | | |_____| (__| | | |_____| |_| | | (_| | | | \__ \ | (_| | ||  __/
+ \___|_| |_|      \___|_| |_|      \__|_|  \__,_|_| |_|___/_|\__,_|\__\___|
+
+1. Introduction					|en-ch-translate-Introduction|
+2. Usage					|en-ch-translate-Usage|
+3. Mappings					|en-ch-translate-Mappings|
+4. Configuration				|en-ch-translate-Configuration|
+5. License					|en-ch-translate-License|
+6. Bugs						|en-ch-translate-Bugs|
+7. Contributing					|en-ch-translate-Contributing|
+8. Changelog					|en-ch-translate-Changelog|
+9. Credits					|en-ch-translate-Credits|
+
+=============================================================================
+1.Introduction~
+						*en-ch-translate-Introduction*
+
+
+=============================================================================
+2.Usage~
+						*en-ch-translate-Usage*
+						*Dict*
+
+In normal modle use <leader>ww to translate the <cword>.if the <cword> is english
+,target languge is chinese,otherwise the target language is english
+
+In visual modle use <leader>w to translate the selected words. 
+
+In command model use (Dict <to-be-transalte-words>) to translate.
+=============================================================================
+3.Mappings~
+						*en-ch-translate-Mappings*
+Normal Modle <leader>ww 
+
+Visual Modle
+<leader>w
+
+=============================================================================
+4.Configration~
+						*en-ch-translate-Configuration*
+
+By default plugin use default account to translate,if you like to use your own
+account ,open autoload/TranslateUtil/search.py to change it!
+=============================================================================
+5.License~
+						*en-ch-translate-License*
+
+=============================================================================
+6.Bugs~
+						*ren-ch-translate-Bugs*
+
+=============================================================================
+7.Contributing~
+						*en-ch-translate-Contributing*
+
+=============================================================================
+8.Changelog~
+						*en-ch-translate-Changelog*
+
+=============================================================================
+9.Credits~
+						*en-ch-translate-Credits*
