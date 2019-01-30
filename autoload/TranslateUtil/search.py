@@ -24,13 +24,15 @@ def searchExplainByPython():
     try:
         dataJson = json.loads(dataBack)
         showData(dataJson,words)
-    except ValueError:
-        print(cData['errorCode']['noQuery'])
-    #print(dataJson)
+    except Exception as e:
+        print(e)
 
 def getMd5(toBeStr):
     md5=hashlib.md5()
-    md5.update(bytes(toBeStr,encoding = "utf8"))
+    if vim.eval('g:python_version') == '2':
+        md5.update(bytes(toBeStr))
+    else:
+        md5.update(bytes(toBeStr,encoding='utf-8'))
     return md5.hexdigest()
 def showData(rs,words):
     cwin=vim.eval('search#GetExplainWindowID()') 
@@ -40,22 +42,22 @@ def showData(rs,words):
     vim.command('%d _')
 
     if rs["errorCode"] != '0':
-        cbuf.append(words+" ===>Translate Failure(翻译失败)")
+        cbuf.append(words+u" ===>Translate Failure(翻译失败)")
     else:
-        cbuf.append("查找:  "+words )
-        cbuf.append("")#添加空行
+        cbuf.append(u"查找:  "+words )
+        cbuf.append("")
         translations=""
         for item in rs["translation"]:
             translations+=item+" "
-        cbuf.append("翻译:  "+translations)
+        cbuf.append(u"翻译:  "+translations)
         if 'basic' in rs:
             if 'uk-phonetic' in rs['basic']:
-                cbuf.append("英标:  " + rs['basic']['uk-phonetic'])
+                cbuf.append(u"英标:  " + rs['basic']['uk-phonetic'])
             if 'us-phonetic' in rs['basic']:
-                cbuf.append("美标:  "+rs['basic']['us-phonetic'])
+                cbuf.append(u"美标:  "+rs['basic']['us-phonetic'])
             if 'explains' in rs['basic']:
-                cbuf.append("")#添加空行
-                itemName="解释:  "
+                cbuf.append("")
+                itemName=u"解释:  "
                 for item in rs['basic']['explains']:
                     cbuf.append(itemName+item)
                     itemName="       "
